@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    
+    window = UIWindow()
+    window?.makeKeyAndVisible()
+//    window?.rootViewController = PokedexController()
+    
+    //UICollectionViewLayout()と誤って入力していたため注意
+    let layout = UICollectionViewFlowLayout()
+    
+    //ナビゲーションコントローラーを埋め込んでいる
+    let navController = UINavigationController(rootViewController: PokedexController(collectionViewLayout: layout))
+    window?.rootViewController = navController
+    
+    
     return true
   }
 
